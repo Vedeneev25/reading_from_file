@@ -80,10 +80,12 @@ if len(sys.argv) <= 1:
     print(calc(command))
 else:
     filename = sys.argv[1]
+    f = open ('output.txt', 'w')
+    f.close()
     command = getfromfile(filename)
     c = len(command)
     for i in range(c):
         y = calc(command[i])
         print(y)
-        with open('output.txt', 'w') as f:
+        with open('output.txt', 'a') as f:
             f.writelines(str(y) + '\n')
